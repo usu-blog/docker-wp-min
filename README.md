@@ -15,7 +15,7 @@ git clone git@github.com:usu-blog/docker-wp-min.git
 ├── README.md
 ├── db-data  # volumes
 ├── docker-compose.yml
-├── .env # 環境変数
+├── sample.env # 環境変数のサンプル
 └── wp-content # volumes
 ```
 
@@ -27,13 +27,19 @@ docker-composeで構築した時volumeがなければデータはdownした時�
 
 
 ## 環境変数とVirtualHostを設定
-まず`.env`を編集してDB名とかパスワードとかVirtualHost名を決めます。
+まず`sample.env`から`.env`にリネームし、DB名とかパスワードとかVirtualHost名を決めます。
+
+```
+mv sample.env .env
+```
+
+
 決めたVirtualHostはホストマシンの`/etc/hosts`に登録することで使えるようになります。
 localhostの右に半角の空白を入れたあと横に並べて書けば準備完了。
 
 - `/etc/hosts`
 ```
-127.0.0.1 localhost [host名]
+127.0.0.1 localhost [virtual host name]
 ```
 
 ## 起動！！
@@ -44,7 +50,7 @@ docker-compose up -d
 ```
 
 ブラウザを確認
-http://[host名]
+http://[virtual host name]
 
 終了は以下のコマンド
 ```
