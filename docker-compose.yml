@@ -4,7 +4,7 @@ services:
     image: wordpress:5.2
     volumes:
       - ./wp-content:/var/www/html/wp-content
-    container_name: 10nenweb_wp
+    container_name: test_wp
     ports:
       - "80:80"
     links:
@@ -14,5 +14,5 @@ services:
     image: mariadb
     volumes:
       - ./db-data:/var/lib/mysql
-    container_name: 10nenweb_db
+    container_name: test_db
     env_file: .env
